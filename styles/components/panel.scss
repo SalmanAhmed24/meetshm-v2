@@ -1,0 +1,22 @@
+.panel {
+	.panel-heading {
+		font-size: 4vw;
+		margin-bottom: 0px;
+		line-height: 60px;
+	}
+	.panel-sub-heading {
+		font-size: 1.5vw;
+		margin-left: 2px;
+		font-weight: 300;
+		margin-bottom: 20px;
+	}
+	.panel-desc {
+		font-size: 1.2vw;
+		margin-left: 2px;
+		font-weight: 300;
+	}
+	button {
+		margin-top: 20px;
+		@include RedBtn;
+	}
+}

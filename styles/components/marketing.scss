@@ -1,0 +1,128 @@
+.market-con {
+	height: 70vh;
+	position: relative;
+	overflow: hidden;
+	animation-name: opacityTrans;
+	animation-timing-function: ease-in-out;
+	animation-duration: 0.5s;
+	animation-iteration-count: once;
+	#myVideo {
+		position: absolute;
+		top: -300px;
+		z-index: 1;
+		width: 100vw;
+	}
+	.background-layout {
+		background-color: rgba(0, 0, 0, 0.65);
+		z-index: 22;
+		position: absolute;
+		top: 0px;
+		height: 100%;
+		width: 100%;
+	}
+	.content-con {
+		z-index: 333;
+		position: absolute;
+		top: 0px;
+		height: 100%;
+		width: 100%;
+		padding: $primarySectionPadding;
+		.content-wrap {
+			background-color: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(5px);
+			border-radius: 10px;
+			box-shadow: 5px 5px 20px #a2a2a2;
+			height: 100%;
+			padding: 30px;
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+			.content-links {
+				width: 100%;
+				max-width: 40vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				.content-ul-links {
+					list-style: none;
+					display: flex;
+					justify-content: space-evenly;
+					flex-wrap: wrap;
+					li {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						width: 12vw;
+						margin-bottom: 50px;
+						position: relative;
+						font-size: 1.1vw;
+						color: #fff;
+						&:hover {
+							cursor: pointer;
+							&::after {
+								content: '';
+								width: 60%;
+								background-color: #fff;
+								height: 5px;
+								border-radius: 20px;
+								position: absolute;
+								bottom: -10px;
+								right: 0px;
+								left: 0px;
+								margin: 0 auto;
+								animation-name: panelBorder;
+								animation-timing-function: ease-in-out;
+								animation-duration: 0.5s;
+								animation-iteration-count: once;
+							}
+						}
+						img {
+							width: 5vw;
+							margin-bottom: 10px;
+						}
+					}
+				}
+			}
+			.panel-con {
+				width: 100%;
+				max-width: 40vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+	}
+}
+.activePanelLink {
+	position: relative;
+	&::after {
+		content: '';
+		width: 60%;
+		background-color: #fff;
+		height: 5px;
+		border-radius: 20px;
+		position: absolute;
+		bottom: -10px;
+		right: 0px;
+		left: 0px;
+		margin: 0 auto;
+	}
+}
+@keyframes panelBorder {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 60%;
+	}
+}
+@keyframes opacityTrans {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
