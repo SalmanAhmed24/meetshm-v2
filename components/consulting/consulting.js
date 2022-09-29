@@ -1,10 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BrandConsult from './subComponent/brandConsult';
+import { consulting } from '../../utils/constant';
 function ConsultingHero() {
-	const [ activePanel, setActivePanel ] = useState('brand consulting');
+	const [ activePanel, setActivePanel ] = useState('Start Up');
+	const [ singlePanel, setSinglePanel ] = useState('');
 	const videoRef = useRef();
+	useEffect(() => {
+		const singleValue = consulting.find((i) => i.title == activePanel);
+		setSinglePanel(singleValue);
+	}, []);
 	const sublinkComponents = (value) => {
 		setActivePanel(value);
+		const singleValue = consulting.find((i) => i.title == value);
+		setSinglePanel(singleValue);
 	};
 	return (
 		<main className="consulting-con">
@@ -17,36 +25,58 @@ function ConsultingHero() {
 					<div className="content-links">
 						<ul className="content-ul-links">
 							<li
-								onClick={() => sublinkComponents('brand consulting')}
-								className={activePanel == 'brand consulting' ? 'activePanelLink' : ''}
+								onClick={() => sublinkComponents('Start Up')}
+								className={activePanel == 'Start Up' ? 'activePanelLink' : ''}
 							>
-								<img src="./images/brand-consult.png" alt="" />
-								Brand Consulting
+								<img src="./images/rocket.png" alt="" />
+								Start Up
 							</li>
-							<li>
-								<img src="./images/internet.png" alt="" />
-								Marketing 2
+							<li
+								onClick={() => sublinkComponents('Financial')}
+								className={activePanel == 'Financial' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/assets.png" alt="" />
+								Financial
 							</li>
-							<li>
-								<img src="./images/internet.png" alt="" />
-								Marketing 3
+							<li
+								onClick={() => sublinkComponents('Marketing Plan')}
+								className={activePanel == 'Marketing Plan' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/strategy.png" alt="" />
+								Marketing Plan
 							</li>
-							<li>
-								<img src="./images/internet.png" alt="" />
-								Marketing 4
+							<li
+								onClick={() => sublinkComponents('Go To Market')}
+								className={activePanel == 'Go To Market' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/market.png" alt="" />
+								Go To Market
 							</li>
-							<li>
-								<img src="./images/internet.png" alt="" />
-								Marketing 5
+							<li
+								onClick={() => sublinkComponents('Investor')}
+								className={activePanel == 'Investor' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/investor.png" alt="" />
+								Investor
 							</li>
-							<li>
-								<img src="./images/internet.png" alt="" />
-								Marketing 6
+							<li
+								onClick={() => sublinkComponents('Technology')}
+								className={activePanel == 'Technology' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/tech.png" alt="" />
+								Technology
 							</li>
 						</ul>
 					</div>
 					<div className="panel-con">
-						{activePanel.toLowerCase() == 'brand consulting' ? <BrandConsult /> : null}
+						<div className="arrow-wrap">
+							<p>
+								View Details<span>
+									<img src="./images/right-arrow.png" alt="" />
+								</span>
+							</p>
+						</div>
+						<BrandConsult content={singlePanel} />
 					</div>
 				</div>
 			</section>

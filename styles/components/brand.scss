@@ -87,6 +87,7 @@
 			}
 			.panel-con {
 				width: 100%;
+				position: relative;
 				max-width: 40vw;
 				display: flex;
 				flex-direction: column;
@@ -124,5 +125,46 @@
 	}
 	100% {
 		opacity: 1;
+	}
+}
+.arrow-wrap {
+	position: absolute;
+	right: 40px;
+	top: 0px;
+	bottom: 0px;
+	p {
+		display: flex;
+		font-size: 1.3vw;
+		flex-direction: column;
+		position: relative;
+		transition: 0.5s ease-in-out;
+		&:hover {
+			cursor: pointer;
+			border-bottom: 1px solid #fff;
+		}
+		span {
+			img {
+				width: 40px;
+				position: absolute;
+				right: -70px;
+				top: -5px;
+				animation-name: arrowAnimate;
+				animation-timing-function: ease-in-out;
+				animation-duration: 3s;
+				animation-iteration-count: infinite;
+			}
+		}
+	}
+}
+
+@keyframes arrowAnimate {
+	0% {
+		right: -75px;
+	}
+	50% {
+		right: -50px;
+	}
+	100% {
+		right: -75px;
 	}
 }

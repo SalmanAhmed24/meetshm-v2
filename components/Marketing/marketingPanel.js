@@ -1,10 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { marketing } from '../../utils/constant';
 import EmailMarkting from './subComponent/emailMarketing';
 function MarketingHero() {
-	const [ activePanel, setActivePanel ] = useState('Marketing 1');
+	const [ activePanel, setActivePanel ] = useState('Direct Mail Marketing');
+	const [ singlePanel, setSinglePanel ] = useState('');
 	const videoRef = useRef();
+	useEffect(() => {
+		const singleValue = marketing.find((i) => i.title == activePanel);
+		setSinglePanel(singleValue);
+	}, []);
 	const sublinkComponents = (value) => {
 		setActivePanel(value);
+		const singleValue = marketing.find((i) => i.title == value);
+		setSinglePanel(singleValue);
 	};
 	return (
 		<main className="market-con">
@@ -17,35 +25,38 @@ function MarketingHero() {
 					<div className="content-links">
 						<ul className="content-ul-links">
 							<li
-								onClick={() => sublinkComponents('Marketing 1')}
-								className={activePanel == 'Marketing 1' ? 'activePanelLink' : ''}
+								onClick={() => sublinkComponents('Direct Mail Marketing')}
+								className={activePanel == 'Direct Mail Marketing' ? 'activePanelLink' : ''}
 							>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 1
+								<img src="./images/direct-marketing.png" alt="" />
+								Direct Mail Marketing
 							</li>
-							<li>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 2
+							<li
+								onClick={() => sublinkComponents('Email Marketing')}
+								className={activePanel == 'Email Marketing' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/mail.png" alt="" />
+								Email Marketing
 							</li>
-							<li>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 3
-							</li>
-							<li>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 4
-							</li>
-							<li>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 5
-							</li>
-							<li>
-								<img src="./images/email-market.png" alt="" />
-								Marketing 6
+							<li
+								onClick={() => sublinkComponents('Social Media')}
+								className={activePanel == 'Social Media' ? 'activePanelLink' : ''}
+							>
+								<img src="./images/social-market.png" alt="" />
+								Social Media
 							</li>
 						</ul>
 					</div>
-					<div className="panel-con">{activePanel == 'Marketing 1' ? <EmailMarkting /> : null}</div>
+					<div className="panel-con">
+						<div className="arrow-wrap">
+							<p>
+								View Details<span>
+									<img src="./images/right-arrow.png" alt="" />
+								</span>
+							</p>
+						</div>
+						<EmailMarkting content={singlePanel} />
+					</div>
 				</div>
 			</section>
 		</main>
