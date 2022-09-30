@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 function HoverPanel({ selectedPanel }) {
 	const [ selectedSec, setSelectedSec ] = useState('info center');
+	const [ titleFlag, setTitleFlag ] = useState(false);
 	const setAccordion = (value) => setSelectedSec(value);
+	const titleFlagHandler = () => {
+		setTitleFlag(!titleFlag);
+		setSelectedSec('info center');
+	};
+
 	return (
-		<main className="hover-panel-con">
+		<main className={titleFlag ? 'hover-panel-con' : 'maxHeight350'}>
 			<div className="hover-panel-wrap">
 				<div className="hover-content-wrap">
-					<h1>
+					<h1 onClick={() => titleFlagHandler()}>
 						<span>0{selectedPanel.id}</span>
 						{selectedPanel.title}
 					</h1>
 				</div>
 			</div>
-			<div className="red-block">
+			<div className={titleFlag ? 'red-block' : 'displayNone'}>
 				<div className="block-wrap">
 					<div
 						onClick={() => setAccordion('info center')}
