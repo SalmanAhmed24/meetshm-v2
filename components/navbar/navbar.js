@@ -4,7 +4,7 @@ function Navbar() {
 	return (
 		<nav className="navbar-con">
 			<div className="navbar-hire-btn-wrap">
-				<button>Hire A Developer</button>
+				<button>Let&apos;s Get Started</button>
 			</div>
 			<div className="navbar-logo-wrap">
 				<Image layout="responsive" src={Logo} />

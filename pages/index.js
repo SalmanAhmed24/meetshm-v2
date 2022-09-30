@@ -1,7 +1,12 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Header from '../components/header/header';
 import UpperLinks from '../components/UpperLinks/upperLinks';
+import { useSelector } from 'react-redux';
+import HoverPanel from '../components/hoverPanel/hoverPanel';
+import { brandLogo, consulting, marketing, promotion, webData } from '../utils/constant';
 export default function Home() {
+	const activePanel = useSelector((state) => state.upperPanel.panelActive);
 	return (
 		<div>
 			<Head>
@@ -11,6 +16,13 @@ export default function Home() {
 			</Head>
 			<UpperLinks />
 			<Header />
+			{activePanel == 'Brand & Logo' ? brandLogo.map((i) => <HoverPanel key={i.id} selectedPanel={i} />) : null}
+			{activePanel == 'Consulting' ? consulting.map((i) => <HoverPanel key={i.id} selectedPanel={i} />) : null}
+			{activePanel == 'Marketing' ? marketing.map((i) => <HoverPanel key={i.id} selectedPanel={i} />) : null}
+			{activePanel == 'Promotional Apparel' ? (
+				promotion.map((i) => <HoverPanel key={i.id} selectedPanel={i} />)
+			) : null}
+			{activePanel == 'Web & Apps' ? webData.map((i) => <HoverPanel key={i.id} selectedPanel={i} />) : null}
 		</div>
 	);
 }

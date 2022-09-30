@@ -55,13 +55,6 @@ function PromotionalHero() {
 						</ul>
 					</div>
 					<div className="panel-con">
-						<div className="arrow-wrap">
-							<p>
-								View Details<span>
-									<img src="./images/right-arrow.png" alt="" />
-								</span>
-							</p>
-						</div>
 						<Hats content={singlePanel} />
 					</div>
 				</div>

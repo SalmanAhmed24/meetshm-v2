@@ -12,11 +12,32 @@ function UpperLinks() {
 		<main className="upper-links-wrap">
 			<ul className="upper-links-ul">
 				<li
+					onClick={() => showContent('Consulting')}
+					className={panelUpper.toLowerCase() == 'consulting' ? 'activeUpperLink' : ''}
+				>
+					<img onClick={() => showContent('Brand & Logo')} src="./images/consult.png" alt="" />
+					Consulting
+				</li>
+				<li
 					onClick={() => showContent('Brand & Logo')}
 					className={panelUpper.toLowerCase() == 'brand & logo' ? 'activeUpperLink' : ''}
 				>
 					<img onClick={() => showContent('Brand & Logo')} src="./images/brand.png" alt="" />
 					Brand & Logo
+				</li>
+				<li
+					onClick={() => showContent('Design & Print')}
+					className={panelUpper.toLowerCase() == 'design & print' ? 'activeUpperLink' : ''}
+				>
+					<img onClick={() => showContent('Brand & Logo')} src="./images/design.png" alt="" />
+					Design & Print
+				</li>
+				<li
+					onClick={() => showContent('Web & Apps')}
+					className={panelUpper.toLowerCase() == 'web & apps' ? 'activeUpperLink' : ''}
+				>
+					<img onClick={() => showContent('Brand & Logo')} src="./images/web.png" alt="" />
+					Web & Apps
 				</li>
 				<li
 					onClick={() => showContent('Marketing')}
@@ -31,27 +52,6 @@ function UpperLinks() {
 				>
 					<img onClick={() => showContent('Brand & Logo')} src="./images/apparel.png" alt="" />
 					Promotional Apparel
-				</li>
-				<li
-					onClick={() => showContent('Web & Apps')}
-					className={panelUpper.toLowerCase() == 'web & apps' ? 'activeUpperLink' : ''}
-				>
-					<img onClick={() => showContent('Brand & Logo')} src="./images/web.png" alt="" />
-					Web & Apps
-				</li>
-				<li
-					onClick={() => showContent('Consulting')}
-					className={panelUpper.toLowerCase() == 'consulting' ? 'activeUpperLink' : ''}
-				>
-					<img onClick={() => showContent('Brand & Logo')} src="./images/consult.png" alt="" />
-					Consulting
-				</li>
-				<li
-					onClick={() => showContent('Design & Print')}
-					className={panelUpper.toLowerCase() == 'design & print' ? 'activeUpperLink' : ''}
-				>
-					<img onClick={() => showContent('Brand & Logo')} src="./images/design.png" alt="" />
-					Design & Print
 				</li>
 			</ul>
 		</main>
