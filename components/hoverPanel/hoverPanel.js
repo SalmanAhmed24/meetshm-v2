@@ -15,6 +15,9 @@ function HoverPanel({ selectedPanel }) {
 					<h1 onClick={() => titleFlagHandler()}>
 						<span>0{selectedPanel.id}</span>
 						{selectedPanel.title}
+						<span>
+							<img src={titleFlag ? './images/upload.png' : './images/down-arrow.png'} />
+						</span>
 					</h1>
 				</div>
 			</div>
