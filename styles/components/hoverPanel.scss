@@ -1,7 +1,7 @@
 .hover-panel-con {
 	max-height: 500px;
 	height: 60vh;
-	background-color: #000;
+	// background-color: #000;
 	position: relative;
 	transition: 0.3s ease-in-out;
 	&:hover {
@@ -150,3 +150,9 @@
 		}
 	}
 }
+// .hover-main-bg {
+// 	background-image: url('../../public/images/Home-bg.png');
+// 	background-position: center;
+// 	background-size: cover;
+// 	background-repeat: no-repeat;
+// }

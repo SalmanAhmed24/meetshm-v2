@@ -5,6 +5,7 @@ import PromotionalHero from '../PromotionalHero/promotionalHero';
 import WebAppHero from '../webApps/webApps';
 import ConsultingHero from '../consulting/consulting';
 import DesignHero from '../DesignPanel/design';
+import HomeHero from '../Home/homeHero';
 function Header() {
 	const panelUpper = useSelector((state) => state.upperPanel.panelActive);
 	return (
@@ -21,6 +22,8 @@ function Header() {
 				<ConsultingHero />
 			) : panelUpper.toLowerCase() == 'design & print' ? (
 				<DesignHero />
+			) : panelUpper.toLowerCase() == 'home' ? (
+				<HomeHero />
 			) : null}
 		</header>
 	);

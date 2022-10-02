@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-	panelActive: 'Brand & Logo'
+	panelActive: 'Home'
 };
 
 export const panelSelectionReducer = (state = INITIAL_STATE, action) => {

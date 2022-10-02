@@ -7,7 +7,6 @@ function UpperLinks() {
 	};
 	const dispatch = useDispatch();
 	const panelUpper = useSelector((state) => state.upperPanel.panelActive);
-	console.log('@@@@', panelUpper);
 	return (
 		<main className="upper-links-wrap">
 			<ul className="upper-links-ul">

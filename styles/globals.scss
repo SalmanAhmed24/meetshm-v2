@@ -6,6 +6,10 @@ body {
 	font-family: 'Poppins', sans-serif;
 	background-color: #000 !important;
 	color: #fff;
+	background-image: url('../public/images/home-bg.png');
+	background-position: bottom left;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 a {
@@ -65,18 +69,29 @@ $primaryNavbarPadding: 30px 70px;
 $primaryBtnPadding: 5px 15px;
 $primarySectionPadding: 40px 70px;
 $primaryCardPadding: 20px;
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-	body {
-		color: white;
-		background: black;
+.footer-main {
+	padding: $primarySectionPadding;
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(5px);
+	box-shadow: 0px -1px 10px #fff;
+	.footer-wrap {
+		display: flex;
+		justify-content: space-between;
+		.client {
+			@include RedBtn;
+		}
+		.staff {
+			@include BlueBtn;
+		}
+		.partner {
+			@include BlueBtn;
+			background-color: #fff;
+			color: #000;
+		}
 	}
 }
 @import './components/navbar.scss';
 @import './components/upperLinks.scss';
-@import './components/header.scss';
 @import './components/brand.scss';
 @import './components/panel.scss';
 @import './components/marketing.scss';
@@ -85,3 +100,4 @@ $primaryCardPadding: 20px;
 @import './components/consulting.scss';
 @import './components/design.scss';
 @import './components/hoverPanel.scss';
+@import './components/homeHero.scss';

@@ -16,6 +16,9 @@
 	.navbar-logo-wrap {
 		max-width: 8vw;
 		width: 100%;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	.navabr-contact-wrap {
 		max-width: 20vw;
