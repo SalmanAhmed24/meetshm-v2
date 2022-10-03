@@ -14,10 +14,13 @@
 		}
 	}
 	.navbar-logo-wrap {
-		max-width: 8vw;
+		max-width: 25vw;
 		width: 100%;
 		&:hover {
 			cursor: pointer;
+		}
+		img {
+			width: 70%;
 		}
 	}
 	.navabr-contact-wrap {

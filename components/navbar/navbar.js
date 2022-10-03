@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Logo from '../../public/images/logo.svg';
+// import Logo from '../../public/images/logo.svg';
 import { topLevelPanel } from '../../redux/panel/action';
 import { useDispatch } from 'react-redux';
 function Navbar() {
@@ -13,7 +13,8 @@ function Navbar() {
 				<button>Let&apos;s Get Started</button>
 			</div>
 			<div className="navbar-logo-wrap" onClick={() => homePanel('Home')}>
-				<Image layout="responsive" src={Logo} />
+				{/* <Image layout="responsive" src={Logo} /> */}
+				<img src="./images/dark-red-logo.png" alt="SiliconHillsMarketing" className="logo-main" />
 			</div>
 			<div className="navabr-contact-wrap">
 				<button>Contact Us</button>
