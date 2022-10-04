@@ -70,7 +70,7 @@ function HoverPanel({ selectedPanel }) {
 						{selectedSec == 'process' ? (
 							<div className="information-wrap">
 								<h1>Process</h1>
-								<p>{selectedPanel.description}</p>
+								<p>Soon all the content will be available</p>
 							</div>
 						) : (
 							<img src="./images/process.png" className="icon-box" />

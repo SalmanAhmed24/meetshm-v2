@@ -16,7 +16,8 @@ export const brandLogo = [
 			The purpose of a great logo design is to give your business an edge over your competitors and build trust with your customers. To achieve both, a logo should be memorable, simple, and unique. We have multiple artists in our creative team work together to help you create the perfect logo that meets all of these criteria.
 			`,
 		pricing:
-			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.',
+		process: `Discovery, Research, Presentation and Review, Launch`
 	},
 	{
 		id: 3,
@@ -24,23 +25,44 @@ export const brandLogo = [
 		description:
 			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
 		pricing:
-			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.',
+		process: null
 	},
 	{
 		id: 4,
-		title: 'Slogan',
+		title: 'Typography',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+			'Typography in brand guidelines specifies the fonts that designers can use when designing for the brand. They spec out the size, spacing, capitalization, and proper usage of type. Typography specs keep a brand’s fonts consistent. Our design team assists you to make the typography choices that represent the mood and style your brand should reflect.',
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.',
+		process: null
+	},
+	{
+		id: 5,
+		title: 'Iconography',
+		description:
+			'Iconography refers to all of the images and symbols that will appear on your website and across your marketing paraphernalia. A critical component to solidifying your brand identity is defining the iconography and illustration guidelines that will be used throughout all of your marketing efforts.',
+		process: null,
 		pricing:
 			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
 	},
 	{
-		id: 5,
-		title: 'Audio',
+		id: 6,
+		title: 'Slogan',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+			'Slogans are an integral part of branding. They help define what a company stands for, and they can be used in all kinds of marketing materials. Whether it’s on social media or printed on the side of a truck, having a slogan is essential to building brand awareness.',
+		process: null,
 		pricing:
 			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
+	},
+	{
+		id: 7,
+		title: 'Audio',
+		description:
+			'Audio branding, also called an audio logo, is a wide term that encompasses the use of sound and music to reinforce your brand identity in consumers’ minds. Jingles, tones, and even spoken slogans are all forms of audio branding.',
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.',
+		process: null
 	}
 ];
 export const marketing = [
@@ -168,26 +190,47 @@ export const designPrint = [
 export const webData = [
 	{
 		id: 1,
-		title: 'Website',
+		title: 'Wordpress Development',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.'
+			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+		process: null,
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
 	},
 	{
 		id: 2,
-		title: 'Mobile Application',
+		title: 'Native (React/NodeJS Development)',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.'
+			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+		process: null,
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
 	},
 	{
 		id: 3,
-		title: 'WordPress',
+		title: 'Web & Email Hosting',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.'
+			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+		process: null,
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
 	},
 	{
 		id: 4,
-		title: 'E-Commerce',
+		title: 'iOS/Android Apps',
 		description:
-			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.'
+			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+		process: null,
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
+	},
+	{
+		id: 5,
+		title: 'Web Based Applications',
+		description:
+			'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+		process: null,
+		pricing:
+			'Packages are custom curated to meet your needs.  They can be as simple as several logo concepts from $199 to full blown branding packages, custom quoted.'
 	}
 ];
