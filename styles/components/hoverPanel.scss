@@ -1,6 +1,6 @@
 .hover-panel-con {
-	max-height: 500px;
-	height: 60vh;
+	min-height: 500px;
+	// height: 60vh;
 	// background-color: #000;
 	position: relative;
 	transition: 0.3s ease-in-out;
@@ -74,7 +74,7 @@
 }
 .width95 {
 	width: 80%;
-	height: 250px;
+	min-height: 250px;
 	transition: 0.3s ease-in-out;
 	border-radius: 10px;
 	background-color: rgba(82, 135, 164, 0.3);

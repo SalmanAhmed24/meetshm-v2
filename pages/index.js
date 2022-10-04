@@ -4,7 +4,7 @@ import Header from '../components/header/header';
 import UpperLinks from '../components/UpperLinks/upperLinks';
 import { useSelector } from 'react-redux';
 import HoverPanel from '../components/hoverPanel/hoverPanel';
-import { brandLogo, consulting, marketing, promotion, webData } from '../utils/constant';
+import { brandLogo, consulting, marketing, promotion, webData, designPrint } from '../utils/constant';
 import HomeContent from '../components/Home/homeContent';
 export default function Home() {
 	const activePanel = useSelector((state) => state.upperPanel.panelActive);
@@ -37,6 +37,11 @@ export default function Home() {
 			</div>
 			<div className="hover-main-bg">
 				{activePanel == 'Web & Apps' ? webData.map((i) => <HoverPanel key={i.id} selectedPanel={i} />) : null}
+			</div>
+			<div className="hover-main-bg">
+				{activePanel == 'Design & Print' ? (
+					designPrint.map((i) => <HoverPanel key={i.id} selectedPanel={i} />)
+				) : null}
 			</div>
 			{activePanel == 'Home' ? <HomeContent /> : null}
 		</div>
