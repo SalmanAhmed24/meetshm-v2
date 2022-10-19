@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default function(req, res) {
 	console.log(req.body);
 	res.json({ status: 'OK' });
-	console.log('new branch');
+	// console.log('new branch');
 	// var nodemailer = require('nodemailer');
 
 	// var transporter = nodemailer.createTransport({
