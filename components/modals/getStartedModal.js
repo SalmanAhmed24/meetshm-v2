@@ -1,23 +1,223 @@
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import axios from 'axios';
 export default function GetStartedModal({ open, handleClose }) {
-	const handleCompanyName = (e) => console.log(e.target.value);
-	const handleUserName = (e) => console.log(e.target.value);
-	const handlePhone = (e) => console.log(e.target.value);
-	const handleEmail = (e) => console.log(e.target.value);
-	const handleWebsite = (e) => console.log(e.target.value);
-	const handleCheckboxes = (e) => {
-		if (e.target.checked && e.target.value == 'website') {
-			console.log('website is checked');
+	const [ companyName, setCompanyName ] = useState('');
+	const [ userName, setUserName ] = useState('');
+	const [ phone, setPhone ] = useState('');
+	const [ email, setEmail ] = useState('');
+	const [ website, setWebsite ] = useState('');
+	const [ message, setMessage ] = useState('');
+	const [ consultCheckBox, setConsultCheckBox ] = useState({ startUp: false, strategy: false, marketing: false });
+	const [ brandCheckBox, setBrandCheckBox ] = useState({
+		logo: false,
+		colorScheme: false,
+		typography: false,
+		iconography: false,
+		brandGuide: false
+	});
+	const [ designCheckBox, setDesignCheckBox ] = useState({ brochure: false, businessCard: false, postCards: false });
+	const [ webCheckBox, setWebCheckBox ] = useState({ mobileApp: false, webApp: false, wordPress: false });
+	const [ marketingCheckBox, setMarketingCheckBox ] = useState({
+		emailCompaign: false,
+		mailCompaign: false,
+		seo: false,
+		socialMedia: false
+	});
+	const [ promCheckBox, setPromCheckBox ] = useState({ apparel: false, beverage: false, signs: false });
+	const handleCompanyName = (e) => setCompanyName(e.target.value);
+	const handleUserName = (e) => setUserName(e.target.value);
+	const handlePhone = (e) => setPhone(e.target.value);
+	const handleEmail = (e) => setEmail(e.target.value);
+	const handleWebsite = (e) => setWebsite(e.target.value);
+	const handleConsultingCheckbox = (e) => {
+		console.log('here', e.target.checked, e.target.value);
+		if (e.target.checked && e.target.value == 'Start Up') {
+			console.log('here in startup true');
+			consultCheckBox.startUp = true;
+			setConsultCheckBox(consultCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Start Up') {
+			console.log('here in startup false');
+			consultCheckBox.startUp = false;
+			setConsultCheckBox(consultCheckBox);
 		}
-		if (e.target.checked && e.target.value == 'graphic') {
-			console.log('graphic is checked');
+		if (e.target.checked && e.target.value == 'Strategy') {
+			consultCheckBox.strategy = true;
+			setConsultCheckBox(consultCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Strategy') {
+			consultCheckBox.strategy = false;
+			setConsultCheckBox(consultCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Marketing') {
+			consultCheckBox.marketing = true;
+			setConsultCheckBox(consultCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Marketing') {
+			consultCheckBox.marketing = false;
+			setConsultCheckBox(consultCheckBox);
 		}
 	};
-	const handleMessage = (e) => console.log(e.target.value);
+	const handleBrandCheckbox = (e) => {
+		console.log('here', e.target.checked, e.target.value);
+		if (e.target.checked && e.target.value == 'Logo') {
+			brandCheckBox.logo = true;
+			setBrandCheckBox(brandCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Logo') {
+			brandCheckBox.logo = false;
+			setBrandCheckBox(brandCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Color Scheme') {
+			brandCheckBox.colorScheme = true;
+			setBrandCheckBox(brandCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Color Scheme') {
+			brandCheckBox.colorScheme = false;
+			setBrandCheckBox(brandCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Typography') {
+			brandCheckBox.typography = true;
+			setBrandCheckBox(brandCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Typography') {
+			brandCheckBox.typography = false;
+			setBrandCheckBox(brandCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Iconography') {
+			brandCheckBox.iconography = true;
+			setBrandCheckBox(brandCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Iconography') {
+			brandCheckBox.iconography = false;
+			setBrandCheckBox(brandCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Brand Guide') {
+			brandCheckBox.brandGuide = true;
+			setBrandCheckBox(brandCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Brand Guide') {
+			brandCheckBox.brandGuide = false;
+			setBrandCheckBox(brandCheckBox);
+		}
+	};
+	const handleDesignCheckbox = (e) => {
+		console.log('here', e.target.checked, e.target.value);
+		if (e.target.checked && e.target.value == 'Brochures') {
+			designCheckBox.brochure = true;
+			setDesignCheckBox(designCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Brochures') {
+			designCheckBox.brochure = false;
+			setDesignCheckBox(designCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Business Cards') {
+			designCheckBox.businessCard = true;
+			setDesignCheckBox(designCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Business Cards') {
+			designCheckBox.businessCard = false;
+			setDesignCheckBox(designCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Postcards') {
+			designCheckBox.postCards = true;
+			setDesignCheckBox(designCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Postcards') {
+			designCheckBox.postCards = false;
+			setDesignCheckBox(designCheckBox);
+		}
+	};
+	const handleWebCheckbox = (e) => {
+		if (e.target.checked && e.target.value == 'iOS/Android Apps') {
+			webCheckBox.mobileApp = true;
+			setWebCheckBox(webCheckBox);
+		} else if (!e.target.checked && e.target.value == 'iOS/Android Apps') {
+			webCheckBox.mobileApp = false;
+			setWebCheckBox(webCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Native/React Web Development') {
+			webCheckBox.webApp = true;
+			setWebCheckBox(webCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Native/React Web Development') {
+			webCheckBox.webApp = false;
+			setWebCheckBox(webCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Wordpress Web Development') {
+			webCheckBox.wordPress = true;
+			setWebCheckBox(webCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Wordpress Web Development') {
+			webCheckBox.wordPress = false;
+			setWebCheckBox(webCheckBox);
+		}
+	};
+	const handleMarketingCheckbox = (e) => {
+		if (e.target.checked && e.target.value == 'Email Campaigns') {
+			marketingCheckBox.emailCompaign = true;
+			setMarketingCheckBox(marketingCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Email Campaigns') {
+			marketingCheckBox.emailCompaign = false;
+			setMarketingCheckBox(marketingCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Mail Campaigns') {
+			marketingCheckBox.mailCompaign = true;
+			setMarketingCheckBox(marketingCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Mail Campaigns') {
+			marketingCheckBox.mailCompaign = false;
+			setMarketingCheckBox(marketingCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'SEO') {
+			marketingCheckBox.seo = true;
+			setMarketingCheckBox(marketingCheckBox);
+		} else if (!e.target.checked && e.target.value == 'SEO') {
+			marketingCheckBox.seo = false;
+			setMarketingCheckBox(marketingCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Social Media') {
+			marketingCheckBox.socialMedia = true;
+			setMarketingCheckBox(marketingCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Social Media') {
+			marketingCheckBox.socialMedia = false;
+			setMarketingCheckBox(marketingCheckBox);
+		}
+	};
+	const handlePromCheckbox = (e) => {
+		if (e.target.checked && e.target.value == 'Apparel') {
+			promCheckBox.apparel = true;
+			setPromCheckBox(promCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Apparel') {
+			promCheckBox.apparel = false;
+			setPromCheckBox(promCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Beverage') {
+			promCheckBox.beverage = true;
+			setPromCheckBox(promCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Beverage') {
+			promCheckBox.beverage = false;
+			setPromCheckBox(promCheckBox);
+		}
+		if (e.target.checked && e.target.value == 'Signs') {
+			promCheckBox.signs = true;
+			setPromCheckBox(promCheckBox);
+		} else if (!e.target.checked && e.target.value == 'Signs') {
+			promCheckBox.signs = false;
+			setPromCheckBox(promCheckBox);
+		}
+	};
+	const handleMessage = (e) => setMessage(e.target.value);
+	const handleSubmit = () => {
+		const data = {
+			company: companyName,
+			name: userName,
+			phone,
+			email,
+			website,
+			consulting: consultCheckBox,
+			brand: brandCheckBox,
+			design: designCheckBox,
+			web: webCheckBox,
+			promotional: promCheckBox,
+			message
+		};
+		axios
+			.post('http://localhost:3000/api/mail', data)
+			.then((res) => console.log(res))
+			.catch((error) => console.log(error));
+	};
 	return (
 		<div>
 			<Modal
@@ -81,13 +281,21 @@ export default function GetStartedModal({ open, handleClose }) {
 							<div className="checkbox-wrap">
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Start Up" />
+										<Checkbox
+											defaultChecked={false}
+											onChange={handleConsultingCheckbox}
+											value="Start Up"
+										/>
 									}
 									label="Start Up"
 								/>
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Strategy" />
+										<Checkbox
+											defaultChecked={false}
+											onChange={handleConsultingCheckbox}
+											value="Strategy"
+										/>
 									}
 									label="Strategy"
 								/>
@@ -95,7 +303,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleConsultingCheckbox}
 											value="Marketing"
 										/>
 									}
@@ -104,14 +312,9 @@ export default function GetStartedModal({ open, handleClose }) {
 							</div>
 							<h2 className="checkbox-heading">Brand/Logo</h2>
 							<div className="checkbox-wrap">
-								{/* <FormControlLabel
-									disabled
-									control={<Checkbox onChange={handleCheckboxes} />}
-									label="Disabled"
-								/> */}
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Logo" />
+										<Checkbox defaultChecked={false} onChange={handleBrandCheckbox} value="Logo" />
 									}
 									label="Logo"
 								/>
@@ -119,7 +322,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleBrandCheckbox}
 											value="Color Scheme"
 										/>
 									}
@@ -129,7 +332,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleBrandCheckbox}
 											value="Typography"
 										/>
 									}
@@ -139,7 +342,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleBrandCheckbox}
 											value="Iconography"
 										/>
 									}
@@ -149,7 +352,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleBrandCheckbox}
 											value="Brand Guide"
 										/>
 									}
@@ -162,7 +365,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleDesignCheckbox}
 											value="Brochures"
 										/>
 									}
@@ -172,7 +375,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleDesignCheckbox}
 											value="Business Cards"
 										/>
 									}
@@ -182,7 +385,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleDesignCheckbox}
 											value="Postcards"
 										/>
 									}
@@ -195,7 +398,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleWebCheckbox}
 											value="iOS/Android Apps"
 										/>
 									}
@@ -205,7 +408,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleWebCheckbox}
 											value="Native/React Web Development"
 										/>
 									}
@@ -215,7 +418,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleWebCheckbox}
 											value="Wordpress Web Development"
 										/>
 									}
@@ -228,7 +431,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleMarketingCheckbox}
 											value="Email Campaigns"
 										/>
 									}
@@ -238,7 +441,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleMarketingCheckbox}
 											value="Mail Campaigns"
 										/>
 									}
@@ -246,7 +449,11 @@ export default function GetStartedModal({ open, handleClose }) {
 								/>
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="SEO" />
+										<Checkbox
+											defaultChecked={false}
+											onChange={handleMarketingCheckbox}
+											value="SEO"
+										/>
 									}
 									label="SEO"
 								/>
@@ -254,7 +461,7 @@ export default function GetStartedModal({ open, handleClose }) {
 									control={
 										<Checkbox
 											defaultChecked={false}
-											onChange={handleCheckboxes}
+											onChange={handleMarketingCheckbox}
 											value="Social Media"
 										/>
 									}
@@ -265,19 +472,27 @@ export default function GetStartedModal({ open, handleClose }) {
 							<div className="checkbox-wrap">
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Apparel" />
+										<Checkbox
+											defaultChecked={false}
+											onChange={handlePromCheckbox}
+											value="Apparel"
+										/>
 									}
 									label="Apparel"
 								/>
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Beverage" />
+										<Checkbox
+											defaultChecked={false}
+											onChange={handlePromCheckbox}
+											value="Beverage"
+										/>
 									}
 									label="Beverage"
 								/>
 								<FormControlLabel
 									control={
-										<Checkbox defaultChecked={false} onChange={handleCheckboxes} value="Signs" />
+										<Checkbox defaultChecked={false} onChange={handlePromCheckbox} value="Signs" />
 									}
 									label="Signs"
 								/>
@@ -285,7 +500,7 @@ export default function GetStartedModal({ open, handleClose }) {
 							<h2 className="checkbox-heading">Message</h2>
 							<textarea className="messageArea" placeholder="Message here..." onChange={handleMessage} />
 							<div className="submitBtnWrap">
-								<button>Send</button>
+								<button onClick={handleSubmit}>Send</button>
 							</div>
 						</div>
 					</div>
